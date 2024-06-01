@@ -16,8 +16,16 @@ class TesteCalculadora(unittest.TestCase):
             (-5, 5, 0),
             (100, 100, 200)
         ]
-        for x, y, resultado_esperado in entradas:
-            self.assertEqual(soma(x, y), resultado_esperado)
+        for entradas in entradas:
+            with  self.subTest(entradas=entradas):
+                x,y,saida=entradas
+                self.assertEqual(soma(x,y),saida)
+
+    
+    def test_soma_x_nao_e_int_ou_float_deve_voltar_assertionerror(self):
+        with self.assertRaises(AssertionError):
+            soma("11",0)
+
 
 if __name__ == '__main__':
     unittest.main()
