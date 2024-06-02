@@ -25,7 +25,7 @@ class TestPessoa(unittest.TestCase):
         with patch('request.get') as fake_request:
             fake_request.return_value.ok=True
 
-            self.assertEqual("Conectado com sucesso!")
+            self.assertEqual(self.p1.obter_todos_dados(),"coNECTaDO!")
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
